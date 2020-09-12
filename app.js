@@ -1,6 +1,12 @@
 new Vue({
 	el: '#vue-app',
 	data: {
-		name: 'Shoan',
+		name: 'Ber',
+		job: 'Web Developer',
+	},
+	methods: {
+		greet: function (time) {
+			return 'Good ' + time + ' ' + this.name
+		},
 	},
 })
