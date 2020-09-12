@@ -16,12 +16,16 @@
 			<!-- <button v-on:click="age++">Add a Year</button>
       <button v-on:click="age--">Substract a Year</button> -->
 
-			<button @click="add(1)">Add a Year</button>
+			<button @click.once="add(1)">Add a Year</button>
 			<button v-on:click="substract(1)">Substract a Year</button>
 			<button @dblclick="add(10)">Add 10 Years</button>
-			<button v-on:click="substract(10)">Substract 10 Years</button>
+			<button v-on:dblclick="substract(10)">Substract 10 Years</button>
 
 			<div id="canvas" v-on:mousemove="updateXY">{{x}},{{y}}</div>
+
+			<a v-on:click.prevent="click" href="http://www.myefficy.com"
+				>myEfficy website</a
+			>
 		</div>
 
 		<script src="app.js"></script>
