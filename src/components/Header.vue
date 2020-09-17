@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1 v-on:click="changeTitle">{{ myTitle}}</h1>
+    <h1 v-on:click="changeTitle">{{ title}}</h1>
   </header>
 </template>
 
@@ -19,7 +19,8 @@ export default {
 
   methods: {
     changeTitle: function () {
-      this.myTitle = "Vue Wizards";
+      this.$emit("changeTitle", "Vue Wizards");
+      // this.myTitle = "Vue Wizards";
     },
   },
 };
