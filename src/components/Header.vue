@@ -1,10 +1,11 @@
 <template>
   <header>
-    <h1 v-on:click="changeTitle">{{ title}}</h1>
+    <h1 v-on:click="changeTitle">{{ myTitle}}</h1>
   </header>
 </template>
 
 <script>
+import { bus } from "../main";
 export default {
   props: {
     title: {
@@ -19,8 +20,9 @@ export default {
 
   methods: {
     changeTitle: function () {
-      this.$emit("changeTitle", "Vue Wizards");
-      // this.myTitle = "Vue Wizards";
+      // this.$emit("changeTitle", "Vue Wizards");
+      this.myTitle = "Vue Wizards";
+      bus.$emit("titleChanged", "Vue Wizards");
     },
   },
 };
