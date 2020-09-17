@@ -1,8 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
-Vue.component("name", {
-  template: "<p>"
-});
+
+// import Ninjas from "./Ninjas.vue";
+
+// Vue.component("ninjas", Ninjas);
 
 new Vue({
   el: "#app",
