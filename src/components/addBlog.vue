@@ -22,9 +22,11 @@
       </div>
       <label>Author:</label>
       <select v-model="blog.author">
-        <option v-for="(author, idx) in authors" v-bind:key="idx">{{
+        <option v-for="(author, idx) in authors" v-bind:key="idx">
+          {{
           author
-        }}</option>
+          }}
+        </option>
       </select>
       <button v-on:click.prevent="post">Add Blog</button>
     </form>
@@ -38,9 +40,7 @@
       <p>{{ blog.content }}</p>
       <p>Blog categories:</p>
       <ul>
-        <li v-for="(category, idx) in blog.categories" v-bind:key="idx">
-          {{ category }}
-        </li>
+        <li v-for="(category, idx) in blog.categories" v-bind:key="idx">{{ category }}</li>
       </ul>
       <p>Author: {{ blog.author }}</p>
     </div>
@@ -64,11 +64,7 @@ export default {
   methods: {
     post: function() {
       this.$http
-        .post("http://jsonplaceholder.typicode.com/posts", {
-          title: this.blog.title,
-          body: this.blog.content,
-          userId: 1
-        })
+        .post("https://vue-playlist-5a8f1.firebaseio.com/posts.json", this.blog)
         .then(function(data) {
           console.log(data);
           this.submitted = true;
