@@ -7,7 +7,7 @@
         <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
       </router-link>
 
-      <article>{{ blog.body | snippet }}</article>
+      <article>{{ blog.content | snippet }}</article>
     </div>
   </div>
 </template>
@@ -25,9 +25,17 @@ export default {
   methods: {},
   created() {
     this.$http
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("https://vue-playlist-5a8f1.firebaseio.com/posts.json")
       .then(function(data) {
-        this.blogs = data.body.slice(0, 10);
+        return data.json();
+      })
+      .then(function(data) {
+        var blogsArray = [];
+        for (let key in data) {
+          data[key].id = key;
+          blogsArray.push(data[key]);
+        }
+        this.blogs = blogsArray;
       });
   },
   computed: {},
@@ -64,7 +72,17 @@ export default {
   background: #eee;
 }
 
-input {
-  width: 98%;
+#show-blogs a {
+  color: #444;
+  text-decoration: none;
+}
+input[type="text"] {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+article {
+  font-family: "Raleway";
 }
 </style>

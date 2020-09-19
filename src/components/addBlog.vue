@@ -110,4 +110,19 @@ h3 {
 #checkboxes label {
   display: inline-block;
 }
+
+hr {
+  display: none;
+}
+button {
+  display: block;
+  margin: 20px 0;
+  background: crimson;
+  color: #fff;
+  border: 0;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+}
 </style>

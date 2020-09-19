@@ -28,6 +28,6 @@ export default {
 <style>
 body {
   margin: 0;
-  font-family: "Nunito SemiBold";
+  font-family: "Nunito";
 }
 </style>
